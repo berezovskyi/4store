@@ -206,22 +206,22 @@ static void daemonize (void)
 
 static char hexdigit[256] =
 {
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 
-  0, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0,
+  0, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
 static void url_decode (char *encoded)
@@ -364,8 +364,8 @@ static void http_query_worker(gpointer data, gpointer user_data)
   client_ctxt *ctxt = (client_ctxt *) data;
 
   ctxt->start_time = fs_time();
-  ctxt->qr = fs_query_execute(query_state, fsplink, bu, ctxt->query_string, 
-                              ctxt->query_flags, opt_level, ctxt->soft_limit, 
+  ctxt->qr = fs_query_execute(query_state, fsplink, bu, ctxt->query_string,
+                              ctxt->query_flags, opt_level, ctxt->soft_limit,
                               ctxt->apikey, 0);
   ctxt->qr->json_function = ctxt->json_function;
   if (ctxt->qr->errors) {
@@ -500,7 +500,7 @@ static int data_modification_acl_granted(client_ctxt *ctxt) {
               return 0;
         }
     }
-    return 1; 
+    return 1;
 }
 
 static void http_import_start(client_ctxt *ctxt)
@@ -798,7 +798,7 @@ static void http_delete_request(client_ctxt *ctxt, gchar *url, gchar *protocol)
         http_error(ctxt, "403 forbidden - updates only with admin API KEY when ACL is enabled");
         http_close(ctxt);
         return;
-    #endif 
+    #endif
     url += 6;
     url_decode(url);
   } else if (!strncmp(url, "/", 1)) {
@@ -898,7 +898,7 @@ static void http_cache_report(client_ctxt *ctxt) {
   char *line = g_strdup_printf("<tr><td>cache_hits</td><td>%d</td></tr>\n",query_state->cache_hits);
   http_send(ctxt, line);
   g_free(line);
-  
+
   line = g_strdup_printf("<tr><td>resolve_all_calls</td><td>%d (avg elapse %.4f ms)</td></tr>\n",
     query_state->resolve_all_calls,query_state->resolve_all_elapse*1000.0);
   http_send(ctxt, line);
@@ -914,9 +914,9 @@ static void http_cache_report(client_ctxt *ctxt) {
     100 * (query_state->cache_success_l2 / (query_state->cache_hits+0.000)));
   http_send(ctxt, line);
   g_free(line);
-  
+
   line = g_strdup_printf("<tr><td>cache_success_l1</td><td>%d (%.2f%%)</td></tr>\n",
-    query_state->cache_success_l1, 
+    query_state->cache_success_l1,
     100 * (query_state->cache_success_l1 / (query_state->cache_hits+0.000)));
   http_send(ctxt, line);
   g_free(line);
@@ -948,7 +948,7 @@ static void http_cache_report(client_ctxt *ctxt) {
     100 * (count_bind / (fs_query_bind_cache_size()+0.0001)));
   http_send(ctxt, line);
   g_free(line);
-  
+
   g_static_mutex_unlock(&query_state->cache_mutex);
   http_send(ctxt, "</table>\n");
 
@@ -995,7 +995,7 @@ static void http_size_report(client_ctxt *ctxt)
                                total.quads_s, total.quads_sr - total.quads_s , total.models_s, total.resources);
   http_send(ctxt, final);
   g_free(final);
- 
+
   http_send(ctxt, "</body></html>\n");
   http_close(ctxt);
 }
@@ -1062,7 +1062,7 @@ static void http_service_description(client_ctxt *ctxt)
   char *size = g_strdup_printf("  sd:totalTriples %llu ;\n  sd:totalResources %llu ;\n", total.quads_s, total.resources);
   http_send(ctxt, size);
   g_free(size);
- 
+
   http_send(ctxt, ".\n");
   http_close(ctxt);
 }
@@ -1088,7 +1088,7 @@ static void http_query_widget(client_ctxt *ctxt)
    "</textarea><br>\n"
    "<em>Soft limit</em> <input type=\"text\" name=\"soft-limit\">\n"
    "<select name=\"output\">\n"
-   "<option>xml</option>\n"   
+   "<option>xml</option>\n"
    "<option>json</option>\n"
    "<option>text</option>\n"
    "</select>\n"
@@ -1317,6 +1317,7 @@ static void http_post_request(client_ctxt *ctxt, gchar *url, gchar *protocol)
       http_error(ctxt, "400 4store only implements application/x-www-form-urlencoded");
       http_close(ctxt);
       g_free(form_type);
+      fs_error(LOG_ERR, "received UPDATE with Content-Type of '%s', expecting 'application/x-www-form-urlencoded'", form_type);
       return;
     }
     g_free(form_type);
@@ -2080,7 +2081,7 @@ int main(int argc, char *argv[])
     set_string(keyfile, kb_name, "listen", &host);
 
     set_boolean(keyfile, kb_name, "cache-stats", &cache_stats);
-    
+
     set_boolean(keyfile, kb_name, "graph-access-control", &graph_access_control);
 
     if (soft_limit == 0) {
